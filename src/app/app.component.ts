@@ -7,7 +7,7 @@ import { AuthService } from './services/auth.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  
+
   usuario = "";
   password = "";
   nombreUsuario = "NOMBRE USUARIO";
@@ -16,24 +16,24 @@ export class AppComponent implements OnInit, AfterViewInit {
   roles = [
     {
       id: 1,
-      name:"ADMIN"
+      name: "ADMIN"
     },
     {
       id: 2,
-      name:"CAJERO"
+      name: "CAJERO"
     },
     {
       id: 3,
-      name:"VENTAS"
+      name: "VENTAS"
     },
     {
       id: 4,
-      name:"CONTADOR"
+      name: "CONTADOR"
     }
   ];
 
   constructor(
-   private _authService: AuthService
+    private _authService: AuthService
   ) {
 
   }
@@ -41,16 +41,16 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     console.log("EVENTO ON INIT");
-    
+
   }
 
   ngAfterViewInit(): void {
-    
+
   }
 
-  iniciarSesion(){
-    
-    let loginRequest:any = {};
+  iniciarSesion() {
+
+    let loginRequest: any = {};
     console.log("usuario ==> ", this.usuario);
     console.log("password ==> ", this.password);
 
@@ -60,28 +60,48 @@ export class AppComponent implements OnInit, AfterViewInit {
     this._authService.roles().subscribe(
       {
         next: (data: any) => {
-          console.log("IMPRIMIENDO ROLES: ",data);        
-         },
-        error: () => { },
-        complete: ()=>{}
+          console.log("IMPRIMIENDO ROLES: ", data);
+        },
+        error: () => {
+          console.log("NO SE PUEDO OBTENER LA LISTA DE ROLES ");
+
+        },
+        complete: () => { }
       }
     );
     this._authService.login(loginRequest).subscribe(
       {
         next: (data: any) => {
-          console.log("IMPRIMIENDO RESULTADO LOGIN",data);       
-         },
+          console.log("IMPRIMIENDO RESULTADO LOGIN", data);
+          this.listarRoles(data.token);
+        },
         error: () => { },
-        complete: ()=>{}
+        complete: () => {
+          
+         }
+
+      }
+    );
+  }
+
+  /**
+   * TODO: COMO PARAMETRO SE DEBE ENVIAR EL TOKEN OBTENIDO AL MOMENTO DE INICIAR SESIÓN
+   */
+  listarRoles(token: string) {    
+    console.log("token ==> ", token);
+    
+    this._authService.roles(token).subscribe(
+      {
+        next: (data: any) => {
+          console.log("IMPRIMIENDO ROLES: ", data);
+        },
+        error: () => {
+          console.log("NO SE PUEDO OBTENER LA LISTA DE ROLES ");
+
+        },
+        complete: () => { }
       }
     );
 
-    // NO ESTAMOS HACIENDO USO DE LOS CONCEPTOS DE JS
-    // OBERVABLE // PROMISE // SUBCRIPCION // DES SUBCRIPCON
-    
   }
-
-
-
-
 }

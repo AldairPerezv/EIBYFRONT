@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -12,9 +12,17 @@ export class AuthService {
 
   }
 
-  roles() {
+  roles(token:string) {
 
-    return this.http.get("")
+    /** 
+     * TODO: COMO ENVIAMOS EL TOKEN EN LA PETICION ==> return this.http.get("https://localhost:7063/api/Cargo")
+    */
+    const httpheaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    })
+
+    return this.http.get("https://localhost:7063/api/Cargo", {headers:httpheaders});
 
   }
 
