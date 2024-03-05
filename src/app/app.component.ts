@@ -32,6 +32,8 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
   ];
 
+  //declaramos la variable toke
+  token: string = "";
   constructor(
     private _authService: AuthService
   ) {
@@ -62,7 +64,8 @@ export class AppComponent implements OnInit, AfterViewInit {
         //Cuando todo esta success
         next: (data: any) => {
           console.log("IMPRIMIENDO RESULTADO LOGIN", data);
-          this.listarRoles(data.token);
+          this.token = data.token;
+          this.listarRoles();
         },
         error: () => { },
         complete: () => {
@@ -76,10 +79,9 @@ export class AppComponent implements OnInit, AfterViewInit {
   /**
    * TODO: COMO PARAMETRO SE DEBE ENVIAR EL TOKEN OBTENIDO AL MOMENTO DE INICIAR SESIÓN
    */
-  listarRoles(token: string) {    
-    console.log("token ==> ", token);
-    
-    this._authService.roles(token).subscribe(
+  listarRoles() {    
+    console.log("token ==> ", this.token);   
+    this._authService.roles(this.token).subscribe(
       {
         next: (data: any) => {
           console.log("IMPRIMIENDO ROLES: ", data);
