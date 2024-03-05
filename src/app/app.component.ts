@@ -57,6 +57,20 @@ export class AppComponent implements OnInit, AfterViewInit {
     loginRequest.userName = this.usuario;
     loginRequest.password = this.password;
 
+    this._authService.login(loginRequest).subscribe(
+      {
+        //Cuando todo esta success
+        next: (data: any) => {
+          console.log("IMPRIMIENDO RESULTADO LOGIN", data);
+          this.listarRoles(data.token);
+        },
+        error: () => { },
+        complete: () => {
+          
+         }
+
+      }
+    );
     this._authService.roles().subscribe(
       {
         next: (data: any) => {
@@ -67,19 +81,6 @@ export class AppComponent implements OnInit, AfterViewInit {
 
         },
         complete: () => { }
-      }
-    );
-    this._authService.login(loginRequest).subscribe(
-      {
-        next: (data: any) => {
-          console.log("IMPRIMIENDO RESULTADO LOGIN", data);
-          this.listarRoles(data.token);
-        },
-        error: () => { },
-        complete: () => {
-          
-         }
-
       }
     );
   }
