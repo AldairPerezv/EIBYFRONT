@@ -67,20 +67,8 @@ export class AppComponent implements OnInit, AfterViewInit {
         error: () => { },
         complete: () => {
           
-         }
+        }
 
-      }
-    );
-    this._authService.roles().subscribe(
-      {
-        next: (data: any) => {
-          console.log("IMPRIMIENDO ROLES: ", data);
-        },
-        error: () => {
-          console.log("NO SE PUEDO OBTENER LA LISTA DE ROLES ");
-
-        },
-        complete: () => { }
       }
     );
   }
@@ -98,11 +86,11 @@ export class AppComponent implements OnInit, AfterViewInit {
         },
         error: () => {
           console.log("NO SE PUEDO OBTENER LA LISTA DE ROLES ");
-
         },
         complete: () => { }
       }
     );
+
 
   }
 }
