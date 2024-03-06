@@ -5,10 +5,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PruebaComponent } from './pages/prueba/prueba.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { WelcomeComponent } from './pages/welcome/welcome.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PruebaComponent,
+    NotFoundComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
