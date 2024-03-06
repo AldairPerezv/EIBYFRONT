@@ -1,14 +1,23 @@
-<h1>LOGIN</h1>
-<br>
-<label for="">USUARIO : </label> <input type="text" [(ngModel)]="usuario">
 
-<br><br>
-<label for="">PASSWORD : </label> <input type="text" [(ngModel)]="password">
+<div class="card bg-light mb-3" style="max-width: 18rem;">
+  <div class="card-header">INICIAR SESION</div>
+  <div class="card-body">
+    <div class="form-group">
+      <label for="">USUARIO : </label>
+      <input class="form-group" type="text" [(ngModel)]="usuario">
+    </div>
+    <div class="form-group">
+      <label for="">PASSWORD : </label>
+      <input class="form-group" type="text" [(ngModel)]="password">
+    </div>
+    <div class="form-group mt-4">
+    <button class="btn btn-sm btn-primary" (click)="iniciarSesion()">
+      INICIAR SESION
+    </button>
+    </div>
+  </div>
+</div>
 
-<br><br>
-<button (click)="iniciarSesion()">
-  INICIAR SESION
-</button>
 
 
 <!-- <h1 > Proyecto: Eiby Moda</h1>
@@ -27,9 +36,24 @@
 <input type="text" [(ngModel)]="nombreUsuario" > <br>
 <label for="">{{nombreUsuario}} </label> -->
 
+<br><br>
+
+<label for="">ID </label><input type="text" [(ngModel)]="cargoRequest.id"><br><br>
+<label for="">Codigo </label><input type="text" [(ngModel)]="cargoRequest.codigo"><br><br>  
+<label for="">Nombre </label><input type="text" [(ngModel)]="cargoRequest.nombre"><br><br>
+<label for="">Estado</label>
+<select [(ngModel)]="cargoRequest.idEstado">
+  <option value="false">false</option>
+  <option value="true">true</option>
+</select>
+
+<br><br>
+
+
 <br><br><br><br>
 
-<table>
+
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
       <th > Id </th>
@@ -37,7 +61,7 @@
       <th > Nombre </th>
       <th > Estado </th>
       <th >
-        <button>AGREGAR</button>
+        <button (click)="crearCargo()" >AGREGAR</button>
       </th>
     </tr>
   </thead>
@@ -48,8 +72,8 @@
       <td > {{cargo.nombre}} </td>
       <td > {{cargo.idEstado}} </td>
       <td >
-        <button>AGREGAR</button>
-        <button>ACTUALIZAR</button>
+        <button (click)="rellenarValores(cargo)" style="background-color: cadetblue;" >SELECC...</button>
+        <button (click)="eliminarRegistro(cargo.id)" style="background-color: brown;" >ELIMINAR</button>
       </td>
     </tr>
   </tbody>
