@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+  username: string = "";
+  password: string = "";
+
+  login()
+  {
+    console.log("this.username ==> ", this.username);
+    console.log("this.password ==> ", this.password);
+    
+  }
+
+
 }

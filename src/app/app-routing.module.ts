@@ -29,11 +29,12 @@ const routes: Routes = [
   {
     path:'reportes', loadChildren:() => import("./modules/mantenimiento/mantenimiento.module").then( x => x.MantenimientoModule)
   },
-  {
-    path:'*', redirectTo: '/404'
-  }
+  // {
+  //   path:'*', redirectTo: '/404'
+  // }
 
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {useHash: true})],
