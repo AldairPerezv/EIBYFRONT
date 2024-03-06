@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { CargoRequest } from './models/cargo-request.model';
 import { AuthService } from './services/auth.service';
 
 @Component({
@@ -13,27 +14,13 @@ export class AppComponent implements OnInit, AfterViewInit {
   nombreUsuario = "NOMBRE USUARIO";
   title = 'Eiby Moda';
 
-  roles = [
-    {
-      id: 1,
-      name: "ADMIN"
-    },
-    {
-      id: 2,
-      name: "CAJERO"
-    },
-    {
-      id: 3,
-      name: "VENTAS"
-    },
-    {
-      id: 4,
-      name: "CONTADOR"
-    }
-  ];
+  
 
   //declaramos la variable toke
   token: string = "";
+
+  cargos: CargoRequest[] = [];
+
   constructor(
     private _authService: AuthService
   ) {
@@ -85,6 +72,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       {
         next: (data: any) => {
           console.log("IMPRIMIENDO ROLES: ", data);
+          this.cargos = data;
         },
         error: () => {
           console.log("NO SE PUEDO OBTENER LA LISTA DE ROLES ");

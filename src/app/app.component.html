@@ -29,4 +29,34 @@
 <input type="text" [(ngModel)]="nombreUsuario" > <br>
 <label for="">{{nombreUsuario}} </label> -->
 
+<br><br><br><br>
+
+<table>
+  <thead>
+    <tr>
+      <th > Id </th>
+      <th > Codigo</th>
+      <th > Nombre </th>
+      <th > Estado </th>
+      <th >
+        <button>AGREGAR</button>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cargo of cargos">
+      <td > {{cargo.id}} </td>
+      <td > {{cargo.codigo}} </td>
+      <td > {{cargo.nombre}} </td>
+      <td > {{cargo.idEstado}} </td>
+      <td >
+        <button>AGREGAR</button>
+        <button>ACTUALIZAR</button>
+      </td>
+    </tr>
+  </tbody>
+  
+
+</table>
+
 <router-outlet></router-outlet>
