@@ -23,12 +23,7 @@ const routes: Routes = [
   {
     path:'dashboard', loadChildren:() => import("./modules/template/template.module").then( x => x.TemplateModule)
   },
-  {
-    path:'matenimiento', loadChildren:() => import("./modules/mantenimiento/mantenimiento.module").then( x => x.MantenimientoModule)
-  },
-  {
-    path:'reportes', loadChildren:() => import("./modules/mantenimiento/mantenimiento.module").then( x => x.MantenimientoModule)
-  },
+  
   // {
   //   path:'*', redirectTo: '/404'
   // }
