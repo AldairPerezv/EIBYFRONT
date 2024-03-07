@@ -1,0 +1,22 @@
+export class PersonaResponse {
+    id: number = 0;
+    idPersonaTipoDocumento: number = 0;
+    idPersonaTipo: number = 0;
+    nroDocumento: string = "";
+    nombre: string = "";
+    apellidoPaterno: string = "";
+    apellidoMaterno: string = "";
+    nombreCompleto: string = "";
+    tipoSangre: string = "";
+    fechaNacimiento: string = "";
+    idGenero: number = 0;
+    email: string = "";
+    celular: string = "";
+    idUbigeo: number = 0;
+    direccion: string = "";
+    idEstado: boolean = false;
+    usuarioCrea: number = 0;
+    usuarioActualiza: number = 0;
+    fechaCrea: string = "";
+    fechaActualiza: string = "";
+}

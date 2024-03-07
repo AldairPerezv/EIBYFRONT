@@ -6,6 +6,8 @@ export const urlConstants = {
     cargo: dominio + "api/cargo/",
     rol: dominio + "api/rol/",
     usuario: dominio + "api/usuario/",
-    persona: dominio + "api/persona/"
+    persona: dominio + "api/persona/",
+    auth: dominio + "api/auth/"
+
 
 }
