@@ -8,7 +8,7 @@ export const authGuard: CanActivateFn = (route, state) => {
   let token = sessionStorage.getItem("token");
 
   if (!token) {
-    alert("guard ==> no iniciaste sesión")
+    alert("guard ==> NO INICIASTE SESION")
     //DEBEMOS REDIRIGIR AL USUARIO HACIA LA PANTALLA DEL TOKEN
     return false;
   }
