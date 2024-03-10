@@ -12,12 +12,11 @@
                     <tr>
                         <th>Id</th>
                         <th>Codigo</th>
-                        <th>Id Estado</th>
                         <th>Nombre</th>
-                        <th>Acciones</th>
+                        <th>Id Estado</th>
                         <th>
                             <button class="btn btn-primary btn-sm">
-                                A
+                                <i class="fas fa-plus"></i>
                             </button>
                         </th>
                     </tr>
@@ -27,13 +26,13 @@
                         <td> {{cargo.id}} </td>
                         <td> {{cargo.codigo}} </td>
                         <td> {{cargo.nombre}} </td>
-                        <td> {{cargo.idEstado}} </td>
+                        <td> {{cargo.estadoDescripcion}} </td>
                         <td>
                             <button class="btn btn-primary btn-sm">
-                                E
+                                <i class="fas fa-edit"></i>
                             </button>
-                            <button class="btn btn-primary btn-sm">
-                                D
+                            <button class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i>   
                             </button>
                         </td>
                     </tr>
