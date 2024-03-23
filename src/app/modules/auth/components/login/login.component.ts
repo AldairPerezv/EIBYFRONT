@@ -11,7 +11,7 @@ import { AuthService } from '../../service/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent {     
 
   loginForm: FormGroup;
   loginRequest: LoginRequest = new LoginRequest();// --> estamos declarando una variable
