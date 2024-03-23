@@ -6,6 +6,7 @@ import { MantCargoListComponent } from './component/cargo/mant-cargo-list/mant-c
 import { MantCargoRegisterComponent } from './component/cargo/mant-cargo-register/mant-cargo-register.component';
 import { MantOrigenListComponent } from './component/origen/mant-origen-list/mant-origen-list.component';
 import { MantOrigenRegisterComponent } from './component/origen/mant-origen-register/mant-origen-register.component';
+import { MantenimientoRoutingModule } from './mantenimiento-routing.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { MantOrigenRegisterComponent } from './component/origen/mant-origen-regi
     MantOrigenListComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MantenimientoRoutingModule
   ]
 })
 export class MantenimientoModule { }
