@@ -7,6 +7,9 @@ import { MantCargoRegisterComponent } from './component/cargo/mant-cargo-registe
 import { MantOrigenListComponent } from './component/origen/mant-origen-list/mant-origen-list.component';
 import { MantOrigenRegisterComponent } from './component/origen/mant-origen-register/mant-origen-register.component';
 import { MantenimientoRoutingModule } from './mantenimiento-routing.module';
+import { EibyModaModule } from '../eiby-moda/eiby-moda.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -18,7 +21,8 @@ import { MantenimientoRoutingModule } from './mantenimiento-routing.module';
   ],
   imports: [
     CommonModule,
-    MantenimientoRoutingModule
+    MantenimientoRoutingModule,
+    SharedModule,
   ]
 })
 export class MantenimientoModule { }

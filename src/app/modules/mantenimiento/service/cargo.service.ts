@@ -4,18 +4,28 @@ import { Observable } from 'rxjs';
 import { urlConstants } from 'src/app/constants/url.constants';
 import { CargoRequest } from '../models/cargo-request.model';
 import { CargoResponse } from '../models/cargo-response.model';
+import { CrudService } from '../../shared/services/crud.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CargoService {
+export class CargoService extends CrudService<CargoRequest, CargoResponse> {
 
   constructor(
-    private _http: HttpClient
-  ) { }
+    protected http: HttpClient,
+  ){
+    super(http, urlConstants.cargo);
+  }
+}
+
 
   /*METODOS DEL CRUD*/
 
+   /*constructor(
+    protected http: HttpClient,*/
+
+
+  /*
   getAll(): Observable<CargoResponse[]>
   {
     // let auth_token = sessionStorage.getItem("token");
@@ -36,8 +46,7 @@ export class CargoService {
   delete(id: number): Observable<number> {
     //interpolacion 
     return this._http.delete<number>(`${urlConstants.cargo}${id}`);
-   }
-  
-    //mapear los request response
 
 }
+*/
+
