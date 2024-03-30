@@ -52,6 +52,7 @@ export class LoginComponent {
           sessionStorage.setItem("idUsuario", data.usuario.id.toString());
           sessionStorage.setItem("username", data.usuario.username);
           sessionStorage.setItem("fullName", data.persona.nombreCompleto);
+          sessionStorage.setItem("rolId", data.rol.id.toString());
         }
         else {
           return;
