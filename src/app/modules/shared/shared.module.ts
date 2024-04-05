@@ -3,6 +3,7 @@ import { CommonModule } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { EibyModaModule } from "../eiby-moda/eiby-moda.module";
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 @NgModule({
     declarations:[],
@@ -12,13 +13,15 @@ import { EibyModaModule } from "../eiby-moda/eiby-moda.module";
         ReactiveFormsModule,
         EibyModaModule,
         HttpClientModule,
+        PaginationModule.forRoot()
     ],
 
-    exports: [
+    exports:[
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        EibyModaModule
+        EibyModaModule,
+        PaginationModule
     ]
 })
 export class SharedModule {}

@@ -7,26 +7,51 @@
         </div>
         <div class="card-body">
 
-            <div class="card bg-light mb-3">
-                <div class="card-header">BUSCAR</div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-3">
-                            <div class="form-group"><label for=""></label></div>
+            <form [formGroup]="myFormFilter">
+    
+                <div class="card bg-light mb-3">
+                    <div class="card-header">BUSCAR</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">Codigo</label>
+                                    <input formControlName="codigo" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">Nombre</label>
+                                    <input formControlName="nombre" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">Estado</label>
+                                    <select formControlName="idEstado" class="form-select">
+                                        <option value="">TODO</option>
+                                        <option value="1">Activo</option>
+                                        <option value="0">Inactivo</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <br>
+                                    <button (click)="filtrar() " class="btn btn-primary btn-sm">
+                                        <i class="fast fa-search"></i>
+                                    </button>
+                                    <button class="btn btn-danger btn-sm">
+                                        <i class="fast fa-broom"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-3">
-                            <div class="form-group"><label for=""></label></div>
-                        </div>
-                        <div class="col-3">
-                            <div class="form-group"><label for=""></label></div>
-                        </div>
-                        <div class="col-3">
-                            <div class="form-group"><label for=""></label></div>
-                        </div>
+    
                     </div>
-
-                </div>
-              </div>
+                  </div>
+            </form>
+        
 
 //PEREZ ME LLEGAS A MI WEBO :V
 
@@ -62,7 +87,28 @@
                 </tbody>
             </table>
 
+            <div class="row">
+                <div class="col-xs-12 col-12">
+
+                  <pagination (pageChanged)="changePage($event)" [totalItems]="totalItems" [itemsPerPage]="itemsPerPage" [previousText]="'Anterior'" [nextText]="'Siguiente'">
+                </pagination>
+
+                </div>
+                
+                <div class="col-xs-4 col-4">    
+
+                <select (change)="changeItemsPerpage()" [(ngModel)]="itemsPerPage" class="form-select">
+                    <option value="3">3</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="30">30</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+
         </div>    
     </div>
 
-</div>
+
+
